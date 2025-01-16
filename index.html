@@ -8,6 +8,28 @@
     <link rel="stylesheet" href="practice/src/css/styles.css">
 </head>
 <body>
-    <h1>Привет, мир!</h1>
+    <div class="table-container">
+        <input type="text" class="table__search" placeholder="Поиск...">
+        <table class="table">
+          <thead>
+            <tr>
+                <th class="table__header-cell" data-column="userId">User ID
+                    <img class="table__sort-icon" src="practice/src/assets/svg/chevron.svg" alt="sort icon">
+                </th>
+                <th class="table__header-cell" data-column="id">ID
+                    <img class="table__sort-icon" src="practice/src/assets/svg/chevron.svg" alt="sort icon">
+                </th>
+                <th class="table__header-cell" data-column="title">Title
+                    <img class="table__sort-icon" src="practice/src/assets/svg/chevron.svg" alt="sort icon">
+                </th>
+                <th class="table__header-cell" data-column="body">Body
+                    <img class="table__sort-icon" src="practice/src/assets/svg/chevron.svg" alt="sort icon">
+                </th>
+            </tr>
+          </thead>
+          <tbody class="table__body"></tbody>
+        </table>
+    </div>
+    <script src="practice/src/scripts/fetch.js" defer></script>
 </body>
 </html>
