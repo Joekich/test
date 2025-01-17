@@ -6,20 +6,25 @@
   margin: 2rem auto;
   max-width: 100rem;
   gap: 2rem;
+  padding-inline: 1rem;
 }
-  
+
 .table__search {
   padding: 1rem;
   border: 1px solid var(--search-border-color);
   border-radius: 0.4rem;
   font-size: 1.6rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .table {
   border-collapse: collapse;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
-  
+
 .table__header-cell {
   background-color: var(--header-bg-color);
   padding: 1rem;
@@ -27,14 +32,16 @@
   cursor: pointer;
   font-size: 1.6rem;
   min-width: 10rem;
-  position: relative;
+  position: sticky;
+  top: 4rem;
+  z-index: 1;
   user-select: none;
 }
-  
+
 .table__header-cell:hover {
   background-color: var(--header-hover-bg-color);
 }
-  
+
 .table__body-cell {
   padding: 1rem;
   border: 1px solid var(--border-color);
@@ -51,15 +58,15 @@
   right: 0.5rem;
   user-select: none;
 }
-  
+
 .table__header-cell--active .table__sort-icon {
   display: inline;
 }
-  
+
 .table__header-cell--ascending .table__sort-icon {
   transform: rotate(0deg);
 }
-  
+
 .table__header-cell--descending .table__sort-icon {
   transform: rotate(180deg);
 }
@@ -71,3 +78,62 @@
 mark {
   background-color: rgba(255, 255, 0, 0.5);
 }
+
+.scroll-button {
+  display: none;
+  position: sticky;
+  bottom: 2rem;
+  left: 2rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--button-bg-color);
+  border: 1px solid var(--search-border-color);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-button:hover {
+  background-color: var(--button-hover-bg-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  opacity: 1;
+}
+
+.scroll-button img {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-button--show {
+  display: block;
+  opacity: 0.5;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .table__header-cell,
+  .table__body-cell {
+    min-width: 5rem;
+  }
+
+  .table__header-cell {
+    height: 6rem;
+    top: 6rem;
+  }
+
+  .table__sort-icon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+  }
+
+  .table__search {
+    height: 6rem;
+  }
+}
+
+
+

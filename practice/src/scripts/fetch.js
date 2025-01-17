@@ -1,6 +1,7 @@
 const tableBody = document.querySelector('.table__body');
 const headers = document.querySelectorAll('.table__header-cell');
 const searchInput = document.querySelector('.table__search');
+const scrollToTopButton = document.querySelector('.scroll-button');
 let posts = [];
 let filteredPosts = [];
 let currentSortColumn = null;
@@ -82,12 +83,21 @@ function searchFilter(query) {
     sortTable(currentSortColumn || 'userId', false);
 }
 
-headers.forEach(header => {
-    header.addEventListener('click', () => sortTable(header.dataset.column));
+headers.forEach(header => header.addEventListener('click', () => sortTable(header.dataset.column)));
+
+searchInput.addEventListener('input', event => searchFilter(event.target.value));
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) {
+        scrollToTopButton.classList.add('scroll-button--show');
+    } else {
+        scrollToTopButton.classList.remove('scroll-button--show');
+    }
 });
 
-searchInput.addEventListener('input', event => {
-    searchFilter(event.target.value);
+scrollToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTopButton.classList.remove('scroll-button--show');
 });
 
 fetchData();
