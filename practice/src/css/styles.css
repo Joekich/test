@@ -115,6 +115,7 @@ mark {
   .table__header-cell,
   .table__body-cell {
     min-width: 5rem;
+    padding: 0.5rem;
   }
 
   .table__header-cell {
