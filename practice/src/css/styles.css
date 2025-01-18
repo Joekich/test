@@ -16,8 +16,12 @@
   border-radius: 0.4rem;
   font-size: 1.6rem;
   position: sticky;
-  top: 0;
+  top: 4rem;
   z-index: 1;
+}
+
+.table__search:focus {
+  outline: none;
 }
 
 .table {
@@ -34,7 +38,7 @@
   font-size: 1.6rem;
   min-width: 10rem;
   position: sticky;
-  top: 4rem;
+  top: 8rem;
   z-index: 1;
   user-select: none;
 }
@@ -112,6 +116,386 @@ mark {
   padding: 0;
 }
 
+.button__open-modal-container {
+  display: flex;
+  max-width: 100rem;
+  width: 100%;
+  margin: 2rem auto;
+  top: 0;
+  position: sticky;
+  z-index: 2;
+  padding-inline: 1rem;
+  background: white;
+  justify-content: center;
+}
+
+.button__open-modal {
+  line-height: 1.8rem;
+  font-size: 1.6rem;
+  color: #E5266E;
+  background-color: white;
+  border: 2px solid #E5266E;
+  height: 4rem;
+  width: 22rem;
+  border-radius: 0.4rem;
+  transition: ease-in-out 0.2s;
+}
+
+.button__open-modal:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #E5266E;
+  
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modal--visible {
+  display: flex;
+}
+
+.modal__content {
+  background-color: #fff;
+  border-radius: 1.2rem;
+  width: 75.4rem;
+  height: 98vh;
+  position: relative;
+}
+
+.modal__scroll-container {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.modal__scroll-container::-webkit-scrollbar {
+  width: 0.6rem;
+  
+}
+
+.modal__scroll-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 1.2rem;
+}
+
+.modal__scroll-container::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 1.2rem;
+  margin: 1rem 0;
+}
+
+.modal__form {
+  padding: 5.3rem 9.2rem 5.3rem 9.8rem;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.form__title {
+  line-height: 3.4rem;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 3.5rem 0;
+}
+
+.form__inputs {
+  display: flex;
+  flex-direction: column;
+  width: 36.2rem;
+  gap: 3.2rem;
+  padding-left: 0.1rem;
+}
+
+.form__input {
+  display: flex;
+  flex-direction: column;
+  width: 36.2rem;
+  height: 5.6rem;
+  outline: 1px solid #D6DADE;
+  padding: 0.8rem 1.6rem 0.8rem 1.6rem;
+  border-radius: 0.2rem;
+}
+
+.form__input-field {
+  border: none;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.form__input-field:focus {
+  outline: none;
+}
+
+.form__optional-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  padding-inline: 0.1rem;
+  margin-bottom: 3.2rem;
+}
+
+.form__input-url {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 5.6rem;
+  width: 100%;
+  outline: 1px solid #D6DADE;
+  border-radius: 0.2rem;
+}
+
+.form__input-url-field {
+  border: none;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  padding: 1.6rem 3.2rem 1.6rem 1.6rem;
+  width: 100%
+}
+
+.form__input-url-field:focus {
+  outline: none;
+}
+
+.form__input-manager {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 5.6rem;
+  outline: 1px solid #D6DADE;
+  padding: 0.8rem 1.6rem 0.8rem 1.6rem;
+  border-radius: 0.2rem;
+}
+
+.form__input-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 3.2rem;
+  width: 3.2rem;
+}
+
+.form__input-icon {
+  padding-right: 1.5rem;
+}
+
+.form__input-icon:hover {
+  cursor: pointer;
+}
+
+.form__input-manager-container {
+  padding-inline: 0.1rem;
+  margin-bottom: 5rem;
+}
+
+.form__submit-button {
+  border: none;
+  background: #E5266E;
+  color: white;
+  height: 4.8rem;
+  width: 100%;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.form__submit-button:hover {
+  cursor: pointer;
+}
+
+.form__cancel-button {
+  min-width: 2rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  border: none;
+  color: #0848C0;
+  background: transparent;
+  display: block;
+  margin: 0 auto;
+}
+
+.form__cancel-button:hover {
+  cursor: pointer;
+}
+
+.form__select {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #D6DADE;
+  border-radius: 0.2rem;
+  padding: 0.8rem 1.6rem 0.8rem 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+.form__label {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.form__required-block {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3.2rem;
+  gap: 3.2rem;
+}
+
+.form__required-sign {
+  color: red;
+  font-size: 1.6rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.form__required-sign::after {
+  content: "Поле обязательное для заполнения";
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+.form__required-sign:hover::after {
+  opacity: 1;
+}
+
+.form__select-input {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+}
+
+.form__select-input:focus {
+  outline: none;
+}
+
+.form__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  position: relative;
+}
+
+.form__logo-update:hover {
+  cursor: pointer;
+}
+
+.form__logo-image {
+  width: 16.5rem;
+  height: 16.5rem;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.form__logo-image #logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.form__logo-text,
+.form__logo-icon {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.form__logo-icon {
+  top: 4rem;
+  left: 6.5rem;
+  z-index: 1;
+}
+
+.form__logo-text {
+  line-height: 2.8rem;
+  font-size: 1.8rem;
+  bottom: 1.5rem;
+  left: 4rem;
+  color: white;
+  z-index: 1;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.form__logo-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.form__logo-update:hover .form__logo-image::after {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.form__logo-update:hover .form__logo-text,
+.form__logo-update:hover .form__logo-icon {
+  opacity: 1;
+}
+
+.form__logo-delete-bg {
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 3.6rem;
+  width: 3.6rem;
+  background: white;
+  border-radius: 50%;
+  top: 3rem;
+  right: 0.5rem;
+  z-index: 2;
+}
+
+.form__logo-update:hover .form__logo-delete-bg {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
 @media screen and (max-width: 768px) {
   .table__header-cell,
   .table__body-cell {
@@ -121,7 +505,7 @@ mark {
 
   .table__header-cell {
     height: 6rem;
-    top: 6rem;
+    top: 9.9rem;
   }
 
   .table__sort-icon {
@@ -135,7 +519,67 @@ mark {
   .table__search {
     height: 6rem;
   }
+
+  .modal__content {
+    width: 90%;
+    height: auto;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+  }
+
+  .modal__form {
+    padding: 2rem;
+  }
+
+  .modal__close-button {
+    right: 0.5rem;
+  }
+
+  .form__title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .form__inputs {
+    width: 100%;
+  }
+
+  .form__input {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .form__input-field {
+    font-size: 1.4rem;
+  }
+
+  .form__label {
+    font-size: 1.4rem;
+  }
+
+  .button__open-modal {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .modal__close-button {
+    font-size: 1.8rem;
+  }
+
+  .scroll-button {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .modal__scroll-container {
+    max-height: 90vh;
+  }
+
+  .form__required-block {
+    flex-direction: column-reverse;
+  }
+
+  .form__logo-delete-bg {
+    display: none;
+  }
 }
-
-
-

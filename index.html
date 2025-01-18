@@ -8,6 +8,125 @@
     <link rel="stylesheet" href="practice/src/css/styles.css">
 </head>
 <body>
+    <div class="button__open-modal-container">
+        <button class="button__open-modal">Открыть модальное окно</button>
+    </div>
+    <div class="modal"> 
+        <div class="modal__content">
+        <button class="modal__close-button" aria-label="Закрыть модальное окно">x</button>
+            <div class="modal__scroll-container">
+                <form class="modal__form">
+                    <p class="form__title" >Стать партнёром проекта</p>
+                    <div class="form__required-block">
+                        <div class="form__inputs">
+                            <div class="form__input">
+                                <label for="organization">
+                                    <p class="form__label"><span class="form__required-sign">* </span> Название организации</p>
+                                </label>
+                                <input autocomplete="off" class="form__input-field" type="text" name="organization" placeholder="АВЦ">
+                            </div>
+                            <div class="form__input">
+                                <label for="organization">
+                                    <p class="form__label"><span class="form__required-sign">* </span> Телефон</p>
+                                </label>
+                                <input autocomplete="off" class="form__input-field" type="text" name="phone" placeholder="+7 933 848-34-33">
+                            </div>
+                            <div class="form__input">
+                                <label for="organization">
+                                    <p class="form__label"><span class="form__required-sign">* </span> E-mail</p>
+                                </label>
+                                <input autocomplete="off" class="form__input-field" type="text" name="email" placeholder="avc@gmail.com">
+                            </div>
+                        </div>
+                        <div class="form__logo">
+                            <label>
+                                <p class="form__label"><span class="form__required-sign">*</span> Логотип (jpeg, png)</p>
+                            </label>
+                            <div class="form__logo-update">
+                                <div class="form__logo-delete-bg">
+                                    <img class="form__logo-delete" src="practice/src/assets/svg/delete-image.svg" alt="delete logo">
+                                </div>
+                                <div class="form__logo-image">
+                                    <img id="logo-image" src="practice/src/assets/image/default-profile-image.webp" alt="Default Logo">
+                                    <p class="form__logo-text">Выберите</br>файл</p>
+                                    <img class="form__logo-icon" src="practice/src/assets/svg/load-file.svg" alt="Update logo">
+                                    <input type="file" id="logo-upload" class="form__logo-upload" accept="image/jpeg, image/png" style="display: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__select">
+                        <label>
+                          <p class="form__label"><span class="form__required-sign">*</span> Направление</p>
+                        </label>
+                            <select class="form__select-input">
+                              <option value="" disabled selected>Выберите направление</option>
+                              <option value="ecology">Экология</option>
+                              <option value="ecology-two">Экология 2</option>
+                        </select>
+                    </div>
+                    <div class="form__optional-block">
+                        <div class="form__input-url">
+                            <input type="text" class="form__input-url-field" placeholder="avc.ru">
+                            <div class="form__input-icon-wrapper">
+                                <img src="practice/src/assets/svg/global.svg" class="form__input-icon" alt="Site icon">
+                            </div>
+                        </div>
+                        <div class="form__input-url">
+                            <input type="text" class="form__input-url-field" placeholder="vk.com/">
+                            <div class="form__input-icon-wrapper">
+                                <a href="https://www.vk.com">
+                                    <img src="practice/src/assets/svg/vk.svg" class="form__input-icon" alt="Vk icon">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form__input-url">
+                            <input type="text" class="form__input-url-field" placeholder="ok.ru/">
+                            <div class="form__input-icon-wrapper">
+                                <a href="https://www.odnoklassniki.ru">
+                                    <img src="practice/src/assets/svg/odnoklassniki.svg" class="form__input-icon" alt="Odnoklassniki icon">
+                                </a>    
+                            </div>
+                        </div>
+                        <div class="form__input-url">
+                            <input type="text" class="form__input-url-field" placeholder="facebook.com/">
+                            <div class="form__input-icon-wrapper">
+                                <a href="https://www.facebook.com">
+                                    <img src="practice/src/assets/svg/facebook.svg" class="form__input-icon" alt="Facebook icon">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form__input-url">
+                            <input type="text" class="form__input-url-field" placeholder="instagram.com/">
+                            <div class="form__input-icon-wrapper">
+                                <a href="https://www.instagram.com">
+                                    <img src="practice/src/assets/svg/instagram.svg" class="form__input-icon" alt="Instagram icon">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form__input-url">
+                            <input type="text" class="form__input-url-field" placeholder="youtube.com/">
+                            <div class="form__input-icon-wrapper">
+                                <a href="https://www.youtube.com">
+                                    <img src="practice/src/assets/svg/youtube.svg" class="form__input-icon" alt="Youtube icon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__input-manager-container">
+                        <div class="form__input-manager">
+                            <label for="organization">
+                                <p class="form__label">Руководитель</p>
+                            </label>
+                            <input class="form__input-field" type="text" name="organization" placeholder="Александров Иван Васильевич">
+                        </div>
+                    </div>
+                    <button class="form__submit-button" type="submit">Стать партнёром проекта</button>
+                    <button class="form__cancel-button">Отменить</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="table-container">
         <input type="text" class="table__search" placeholder="Поиск...">
         <table class="table">
@@ -34,5 +153,6 @@
         <img src="practice/src/assets/svg/up-button.svg" alt="Scroll to top">
     </button>  
     <script src="practice/src/scripts/fetch.js" defer></script>
+    <script src="practice/src/scripts/modal.js" defer></script>
 </body>
 </html>
