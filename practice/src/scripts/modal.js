@@ -185,6 +185,7 @@ function formSubmit(event) {
     if (!(isOrganizationValid && isPhoneValid && isEmailValid && isSelectValid && isLogoValid)) {
         event.preventDefault();
         alert('Каким-то магическим образом вам все же удалось нажать на кнопку отправки. К сожалению, ваши данные не будут отправлены, так как при заполнении формы были допущены ошибки (данные не валидны)');
+        submitButton.disabled = true;
     }
 }
 
