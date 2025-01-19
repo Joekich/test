@@ -1,4 +1,6 @@
 :root {
+  --white-color: white;
+  --red-color: red;
   --header-bg-color: #efefef;
   --header-hover-bg-color: #eaeaea;
   --body-row-bg-color: #f9f9f9;
@@ -6,4 +8,17 @@
   --search-border-color: #cccccc;
   --button-hover-bg-color: #e0e0e0;
   --button-bg-color: #f0f0f0;
+  --tint-black-01: rgba(0, 0, 0, 0.1);
+  --tint-black-02: rgba(0, 0, 0, 0.2);
+  --tint-black-03: rgba(0, 0, 0, 0.3);
+  --tint-black-05: rgba(0, 0, 0, 0.5);
+  --tint-black-06: rgba(0, 0, 0, 0.6);
+  --tint-black-07: rgba(0, 0, 0, 0.7);
+  --mark-yellow-05: rgba(255, 255, 0, 0.5);
+  --submit-button-main-color: #E5266E;
+  --submit-button-hover-color: #c5205f;
+  --input-border-color: #D6DADE;
+  --form-cancel-button-color: #0848C0;
+  --delete-logo-button: rgb(238, 238, 238);
+  --delete-logo-button-hover: rgb(219, 219, 219);
 }

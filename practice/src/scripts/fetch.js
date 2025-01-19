@@ -1,16 +1,13 @@
-const tableBody = document.querySelector('.table__body');
-const headers = document.querySelectorAll('.table__header-cell');
-const searchInput = document.querySelector('.table__search');
-const scrollToTopButton = document.querySelector('.scroll-button');
-let posts = [];
-let filteredPosts = [];
+const tableBody = document.querySelector('#table__body');
+const headers = document.querySelectorAll('[data-header-cell]');
+const searchInput = document.querySelector('#table__search');
+const scrollToTopButton = document.querySelector('#scroll-button');
 let currentSortColumn = null;
 let sortOrder = {};
 
 async function fetchData() {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     posts = await response.json();
-    filteredPosts = posts;
     sortTable('userId');
 }
 
@@ -61,7 +58,7 @@ function sortTable(column, shouldToggleSort = true) {
     sortOrder[column] = isAscending;
     currentSortColumn = column;
 
-    const sortedData = [...filteredPosts].sort((a, b) => {
+    const sortedData = [...posts].sort((a, b) => {
         const aValue = a[column];
         const bValue = b[column];
 
@@ -70,17 +67,17 @@ function sortTable(column, shouldToggleSort = true) {
         return 0;
     });
 
-    filteredPosts = sortedData;
     renderTable(sortedData, searchInput.value);
 }
 
 function searchFilter(query) {
-    filteredPosts = query.length >= 3
+    const filteredPosts = query.length >= 3
         ? posts.filter(post => Object.values(post).some(value =>
             value.toString().toLowerCase().includes(query.toLowerCase())
         ))
         : posts;
     sortTable(currentSortColumn || 'userId', false);
+    renderTable(filteredPosts, query);
 }
 
 headers.forEach(header => header.addEventListener('click', () => sortTable(header.dataset.column)));

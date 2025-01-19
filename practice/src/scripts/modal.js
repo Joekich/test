@@ -1,18 +1,18 @@
-const openModalButton = document.querySelector('.button__open-modal');
-const modal = document.querySelector('.modal');
-const closeModalButton = document.querySelector('.modal__close-button');
-const cancelFormButton = document.querySelector('.form__cancel-button');
+const openModalButton = document.querySelector('#button__open-modal');
+const modal = document.querySelector('#modal');
+const closeModalButton = document.querySelector('#modal__close-button');
+const cancelFormButton = document.querySelector('#form__cancel-button');
 const body = document.body;
-const logoUpdateBlock = document.querySelector('.form__logo-update');
+const logoUpdateBlock = document.querySelector('#form__logo-update');
 const logoImage = document.querySelector('#logo-image');
 const logoUploadInput = document.querySelector('#logo-upload');
-const logoDeleteButton = document.querySelector('.form__logo-delete-bg');
+const logoDeleteButton = document.querySelector('#form__logo-delete-bg');
 const defaultLogo = 'practice/src/assets/image/default-profile-image.webp';
-const submitButton = document.querySelector('.form__submit-button');
-const organizationInput = document.querySelector('input[name="organization"]');
-const phoneInput = document.querySelector('input[name="phone"]');
-const emailInput = document.querySelector('input[name="email"]');
-const selectInput = document.querySelector('.form__select-input');
+const submitButton = document.querySelector('#form__submit-button');
+const organizationInput = document.querySelector('#organization-input');
+const phoneInput = document.querySelector('#phone-input');
+const emailInput = document.querySelector('#email-input');
+const selectInput = document.querySelector('#form__select-input');
 
 let scrollbarWidth = 0;
 const defaultLogoSrc = 'practice/src/assets/image/default-profile-image.webp';
@@ -46,10 +46,19 @@ function openFileDialog() {
 function handleFileUpload(event) {
     const file = event.target.files[0];
     if (file) {
+        const allowedExtensions = /\.(jpe?g|png)$/i;
+        if (!allowedExtensions.test(file.name)) {
+            alert('Вы пытаетесь загрузить неподходящий файл. Пожалуйста, выберите картинку с расширением JPEG или PNG.');
+            logoUploadInput.value = '';
+            validateForm();
+            return;
+        }
+
         const reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             logoImage.src = e.target.result;
             logoImage.alt = 'User Logo';
+            validateForm();
         };
         reader.readAsDataURL(file);
     }
@@ -61,19 +70,6 @@ function deleteLogo(event) {
     logoImage.alt = 'Default Logo';
     logoUploadInput.value = '';
     validateForm();
-}
-
-function validateForm() {
-    const isOrganizationValid = validateOrganization();
-    const isPhoneValid = validatePhone();
-    const isEmailValid = validateEmail();
-    const isDirectionSelected = validateSelect();
-    const isLogoUploaded = validateLogo();
-
-    const isFormValid = isOrganizationValid && isPhoneValid && isEmailValid && isDirectionSelected && isLogoUploaded;
-
-    submitButton.disabled = !isFormValid;
-    submitButton.style.cursor = isFormValid ? 'pointer' : 'not-allowed';
 }
 
 function validateOrganization() {
@@ -88,7 +84,7 @@ function validatePhone() {
 
 function validateEmail() {
     const value = emailInput.value.trim();
-    const emailRegex = /^[a-zA-Z0-9._@\s-]+@(gmail\.com|yandex\.ru|mail\.ru)$/;
+    const emailRegex = /^(?:[a-z\d!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z\d!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\u0001-\u0008\u000B\u000C\u000E-\u001F!\u0023-\u005B\u005D-\u007F]|\\[\u0001-\u0009\u000B\u000C\u000E-\u007F])*")@(?:(?:[a-z\d](?:[a-z\d-]*[a-z\d])?\.)+[a-z\d](?:[a-z\d-]*[a-z\d])?|\[(?:(?:25[0-5]|2[0-4]\d|[01]?\d{1,2})\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d{1,2}|[a-z\d-]*[a-z\d]:(?:[\u0001-\u0008\u000B\u000C\u000E-\u001F\u0021-\u005A\u0053-\u007F]|\\[\u0001-\u0009\u000B\u000C\u000E-\u007F])+)])$/;
     return emailRegex.test(value);
 }
 
@@ -102,13 +98,60 @@ function validateLogo() {
     return uploadedLogoSrc !== defaultLogoFileName;
 }
 
+function validateField(id, validationFunction, invalidMessage) {
+    const field = document.getElementById(id);
+    if (!field) return;
+
+    const isFieldValid = validationFunction();
+    const label = document.querySelector(`label[for="${id}"]`);
+    if (label) {
+        label.dataset.tooltip = isFieldValid ? "Поле заполнено корректно" : invalidMessage;
+
+        const requiredSign = label.querySelector('[data-required-sign]');
+        if (requiredSign) {
+            requiredSign.style.color = isFieldValid ? "green" : "red";
+        }
+    }
+}
+
+function validateForm() {
+    validateField('organization-input', validateOrganization, "Название организации должно состоять минимум из 3-х символов");
+    validateField('phone-input', validatePhone, "Номер телефона должен состоять из 11 цифр и начинаться на +7");
+    validateField('email-input', validateEmail, "Введите корректный email (латиницей) - например YourEmail@mail.ru");
+    validateField('form__select-input', validateSelect, "Выберите направление в выпадающем списке");
+    validateField('logo-upload', validateLogo, "Загрузите логотип в формате jpeg/png");
+
+    const isFormValid = validateOrganization() && validatePhone() && validateEmail() && validateSelect() && validateLogo();
+
+    submitButton.disabled = !isFormValid;
+}
+
+phoneInput.addEventListener('focus', () => {
+    if (phoneInput.value.length <= 2) {
+        phoneInput.value = '+7';
+    }
+});
+
+phoneInput.addEventListener('input', () => {
+    let value = phoneInput.value;
+
+    value = '+7' + value.slice(2).replace(/\D/g, '');
+  
+    if (value.length > 12) {
+        value = value.slice(0, 12);
+    }
+
+    phoneInput.value = value;
+    validateForm();
+});
+
 document.addEventListener('mousedown', (event) => {
     if (event.target === modal) {
         closeModal();
     }
 });
 
-document.querySelectorAll('.form__required-sign').forEach((el) => {
+document.querySelectorAll('[data-required-sign]').forEach((el) => {
     el.textContent = '\u2217';
 });
 
