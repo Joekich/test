@@ -19,7 +19,7 @@ let isOrganizationValid = false;
 let isPhoneValid = false;
 let isEmailValid = false;
 let isSelectValid = false;
-let isLogoValid = false;
+let isLogoValid = false; 
 
 function getScrollbarWidth() {
     const div = document.createElement('div');
@@ -255,3 +255,5 @@ function cleanUpListeners() {
     cancelFormButton.removeEventListener('click', closeModal);
     closeModalButton.removeEventListener('click', closeModal);
 }
+
+validateForm();
