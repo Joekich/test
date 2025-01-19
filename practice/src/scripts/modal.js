@@ -162,7 +162,7 @@ function validateLogo() {
 
     isLogoValid = uploadedLogoSrc !== defaultLogoFileName;
 
-    const label = document.querySelector('label[for="logo-upload"]');
+    const label = logoUploadInput.labels[0];
     if (label) {
         label.dataset.tooltip = isLogoValid
             ? 'Поле заполнено корректно'
