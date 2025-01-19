@@ -1,7 +1,7 @@
-const tableBody = document.querySelector('#table__body');
+const tableBody = document.getElementById('table__body');
 const headers = document.querySelectorAll('[data-header-cell]');
-const searchInput = document.querySelector('#table__search');
-const scrollToTopButton = document.querySelector('#scroll-button');
+const searchInput = document.getElementById('table__search');
+const scrollToTopButton = document.getElementById('scroll-button');
 let currentSortColumn = null;
 let sortOrder = {};
 

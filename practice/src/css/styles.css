@@ -134,12 +134,13 @@ mark {
   width: 22rem;
   border-radius: 0.4rem;
   transition: ease-in-out 0.2s;
+  transition-property: color, background-color;
 }
 
 .button__open-modal:hover {
   cursor: pointer;
   color: var(--white-color);
-  background-color: var(--submit-button-main-color);;
+  background-color: var(--submit-button-main-color);
 }
 
 .modal {
@@ -278,6 +279,14 @@ mark {
   border-radius: 0.2rem;
 }
 
+.form__input-manager .form__label::after {
+  display: none;
+}
+
+.form__input-manager .form__label:hover{
+  cursor: default;
+}
+
 .form__input-icon-wrapper {
   display: flex;
   flex-direction: column;
@@ -289,6 +298,7 @@ mark {
 
 .form__input-icon {
   padding-right: 1.5rem;
+  user-select: none;
 }
 
 .form__input-manager-container {
@@ -356,8 +366,7 @@ mark {
   content: attr(data-tooltip);
   position: absolute;
   top: -3.6rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   background-color: var(--tint-black-07);
   color: var(--white-color);
   font-size: 1.4rem;
@@ -367,6 +376,7 @@ mark {
   opacity: 0;
   transition: opacity 0.2s ease;
   z-index: 1000;
+  pointer-events: none;
 }
 
 .form__label:hover::after {
@@ -404,6 +414,14 @@ mark {
   align-items: center;
   gap: 0.7rem;
   position: relative;
+}
+
+.form__logo-update {
+  position: relative;
+}
+
+.form__logo .form__label::after {
+  transform: translateX(-50%);
 }
 
 .form__logo-upload {
@@ -480,8 +498,7 @@ mark {
 }
 
 .form__logo-delete-bg {
-  opacity: 0;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -489,9 +506,13 @@ mark {
   width: 3.6rem;
   background: var(--delete-logo-button);
   border-radius: 50%;
-  top: 3rem;
+  top: 1rem;
   right: 0.5rem;
   z-index: 2;
+}
+
+.form__logo-delete-bg--visible {
+  display: flex;
 }
 
 .form__logo-delete-bg:hover {
@@ -584,10 +605,6 @@ mark {
 
   .form__required-block {
     flex-direction: column-reverse;
-  }
-
-  .form__logo-delete-bg {
-    display: none;
   }
 
   .form__label::after {
