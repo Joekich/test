@@ -20,20 +20,20 @@
                     <div class="form__required-block">
                         <div class="form__inputs">
                             <div class="form__input">
-                                <label class="form__label" for="organization-input"><span class="form__required-sign" data-required-sign>* </span> Название организации</label>
+                                <label class="form__label" for="organization-input" data-tooltip="Название организации должно состоять минимум из 3-х букв"><span class="form__required-sign" data-required-sign>∗</span> Название организации</label>
                                 <input autocomplete="off" class="form__input-field" type="text" id="organization-input" placeholder="АВЦ">
                             </div>
                             <div class="form__input">
-                                <label class="form__label" for="phone-input" ><span class="form__required-sign" data-required-sign>* </span> Телефон</label>
+                                <label class="form__label" for="phone-input" data-tooltip="Номер телефона должен состоять из 11 цифр и начинаться на +7"><span class="form__required-sign" data-required-sign>∗</span> Телефон</label>
                                 <input autocomplete="off" class="form__input-field" type="tel" id="phone-input" placeholder="+7 933 848-34-33">
                             </div>
                             <div class="form__input">
-                                <label class="form__label" for="email-input"><span class="form__required-sign" data-required-sign>* </span> E-mail</label>
+                                <label class="form__label" for="email-input" data-tooltip="Введите корректный email (например YourEmail@mail.ru)"><span class="form__required-sign" data-required-sign>∗</span> E-mail</label>
                                 <input autocomplete="off" class="form__input-field" type="email" id="email-input" placeholder="avc@gmail.com">
                             </div>
                         </div>
                         <div class="form__logo">
-                            <label class="form__label" for="logo-upload"><span class="form__required-sign" data-required-sign>*</span> Логотип (jpeg, png)</label>
+                            <label class="form__label" for="logo-upload" data-tooltip="Загрузите логотип в формате JPEG/PNG"><span class="form__required-sign" data-required-sign>∗</span> Логотип (jpeg, png)</label>
                             <div id="form__logo-update" class="form__logo-update">
                                 <div id="form__logo-delete-bg" class="form__logo-delete-bg">
                                     <img class="form__logo-delete" src="practice/src/assets/svg/delete-image.svg" alt="delete logo">
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="form__select">
-                        <label class="form__label" for="form__select-input"><span class="form__required-sign" data-required-sign>*</span> Направление</label>
+                        <label class="form__label" for="form__select-input" data-tooltip="Выберите направление в выпадающем списке"><span class="form__required-sign" data-required-sign>∗</span> Направление</label>
                         <select id="form__select-input" class="form__select-input">
                             <option value="" disabled selected>Выберите направление</option>
                             <option value="ecology">Экология</option>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <button id="form__submit-button" class="form__submit-button" type="submit">Стать партнёром проекта</button>
-                    <button id="form__cancel-button" class="form__cancel-button">Отменить</button>
+                    <button type="button" id="form__cancel-button" class="form__cancel-button">Отменить</button>
                 </form>
             </div>
         </div>
