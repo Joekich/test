@@ -1,5 +1,23 @@
 @import url(variables.css);
 
+@font-face {
+  font-family: "PT Sans";
+  src: url(fonts/PTSans-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url(fonts/Montserrat-ExtraBold.ttf) format('truetype');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url(fonts/Montserrat-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+}
+
 .table-container {
   display: flex;
   flex-direction: column;
@@ -360,6 +378,7 @@ mark {
 }
 
 .form__label {
+  color: var(--label-color);
   font-family: "PT Sans";
   font-weight: 400;
   margin: 0;
